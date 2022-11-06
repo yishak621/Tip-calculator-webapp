@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>yishak abrham | Tip calculator webapp</title>
+  </head>
+  <!--styles-->
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="stylesheet" href="./styles/normalize.css" />
+
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <!--font awesome icon-->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  />
+  <body>
+    <header>
+      <h1 class="card-title">spli <br />tter</h1>
+    </header>
+    <main>
+      <section>
+        <div class="card-container">
+          <!--card output-->
+          <div class="card--input">
+            <label for="number">Bill</label>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <input type="number" placeholder="0" id="number" />
+            <div class="tip--section">
+              <span>select tip %</span>
+              <div class="tip--buttons">
+                <button class="btn tip__btn">5%</button>
+                <button class="btn tip__btn">10%</button>
+                <button class="btn tip__btn">15%</button>
+                <button class="btn tip__btn">25%</button>
+                <button class="btn tip__btn">50%</button>
+                <input type="number" id="custom" placeholder="Custom" />
+              </div>
+            </div>
+            <label for="people">Number of people</label>
+            <i class="fa-solid fa-user"></i>
+            <input type="number" id="people" placeholder="0" />
+          </div>
+          <!--card output-->
+          <div class="card--output">
+            <div class="card__wrapper">
+              <!--amount-->
+              <div class="amount">
+                <span class="amount__flex">
+                  <h2>Tip Amount</h2>
+                  <h3>/ person</h3>
+                </span>
+                <h1 class="price__tag">$4.27</h1>
+              </div>
+              <!--total-->
+              <div class="total">
+                <span class="total__flex">
+                  <h2>Total</h2>
+                  <h3>/ person</h3>
+                </span>
+                <h1 class="total__tag">$4.27</h1>
+              </div>
+              <!--reset btn-->
+              <button class="btn btn__reset">reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--script-->
+    <script type="module" src="./script/script.js"></script>
+  </body>
+</html>
