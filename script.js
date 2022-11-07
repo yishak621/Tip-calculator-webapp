@@ -14,10 +14,10 @@ const hide = document.querySelector('.hide');
 const errorMessage = document.querySelector('.error');
 //final event
 
-const arr = [0];
 userInput.addEventListener('keyup', () => {
   //calculating the amount of tip
   const newHide = parseInt(hide.textContent);
+
   const tipDivision = newHide / userInput.value;
 
   if (tipDivision >= 0 && tipDivision <= 1000) {
@@ -31,9 +31,17 @@ userInput.addEventListener('keyup', () => {
 
     userInput.classList.add('error-input');
   }
+  function acc() {
+    const newTag = priceTag.textContent;
+    let counter = 0;
+    counter += newTag;
+    console.log(counter);
+    return counter;
+  }
+  acc();
 });
 
-//callBack();
+//event listner
 
 tipBtnContainer.addEventListener('click', (e) => {
   const value = billInput.value;
