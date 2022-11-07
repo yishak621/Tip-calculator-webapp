@@ -136,7 +136,7 @@ input[type='number'] {
 input[type='number']:focus {
   border-color: #7db0fb;
   outline: 0;
-  box-shadow: 0 0 0 4px rgba(24, 117, 255, 0.25); /*0 and 0 horizontal and vertical offset and 0 for
+  box-shadow: 0 0 0 4px rgba(118, 187, 255, 0.25); /*0 and 0 horizontal and vertical offset and 0 for
      bluring and 3px for spreading the shadow*/
 }
 .card--input {
@@ -262,6 +262,11 @@ span {
   color: var(--color-very-dark-cyan);
 }
 @media screen and (min-width: 800px) {
+  .card--input > label,
+  span {
+    font-size: 1.2rem;
+    margin-bottom: 0.1rem;
+  }
   .card--output {
     padding: 1.5rem;
     display: flex;
@@ -273,6 +278,9 @@ span {
     padding: 4rem 3rem;
     padding-bottom: 2.5rem;
   }
+  .tip--section {
+    margin: 1.2rem 0 1.2rem 0;
+  }
   .btn__reset {
     align-self: flex-end;
   }
@@ -281,4 +289,25 @@ span {
     color: var(--color-primary);
     font-size: 3rem;
   }
+}
+/*error*/
+.hide {
+  display: none;
+}
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.error-open {
+  display: visible;
+}
+.error-close {
+  display: none;
+}
+.error {
+  font-size: 1rem;
+  color: red;
+  letter-spacing: 2px;
+  text-transform: none;
 }

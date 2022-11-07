@@ -38,21 +38,26 @@
           <div class="card--input">
             <label for="number">Bill</label>
             <i class="fa-solid fa-dollar-sign"></i>
-            <input type="number" placeholder="0" id="number" />
+            <input type="number" placeholder="0" id="bill-number" />
+
             <div class="tip--section">
               <span>select tip %</span>
               <div class="tip--buttons">
-                <button class="btn tip__btn">5%</button>
-                <button class="btn tip__btn">10%</button>
-                <button class="btn tip__btn">15%</button>
-                <button class="btn tip__btn">25%</button>
-                <button class="btn tip__btn">50%</button>
-                <input type="number" id="custom" placeholder="Custom" />
+                <button data-value="0.05" class="btn tip__btn">5%</button>
+                <button data-value="0.1" class="btn tip__btn">10%</button>
+                <button data-value="0.15" class="btn tip__btn">15%</button>
+                <button data-value="0.25" class="btn tip__btn">25%</button>
+                <button data-value="0.5" class="btn tip__btn">50%</button>
+                <input type="number" id="custom" placeholder="Custom%" />
               </div>
             </div>
-            <label for="people">Number of people</label>
+
+            <span class="user"
+              ><label for="user">Number of people</label>
+              <p class="error error-close">Can't be zero</p></span
+            >
             <i class="fa-solid fa-user"></i>
-            <input type="number" id="people" placeholder="0" />
+            <input type="number" id="user" placeholder="0" />
           </div>
           <!--card output-->
           <div class="card--output">
@@ -63,7 +68,7 @@
                   <h2>Tip Amount</h2>
                   <h3>/ person</h3>
                 </span>
-                <h1 class="price__tag">$4.27</h1>
+                <h1 class="price__tag">$0.00</h1>
               </div>
               <!--total-->
               <div class="total">
@@ -71,7 +76,7 @@
                   <h2>Total</h2>
                   <h3>/ person</h3>
                 </span>
-                <h1 class="total__tag">$4.27</h1>
+                <h1 class="total__tag">$0.00</h1>
               </div>
               <!--reset btn-->
               <button class="btn btn__reset">reset</button>
@@ -80,7 +85,8 @@
         </div>
       </section>
     </main>
+    <p class="hide"></p>
     <!--script-->
-    <script type="module" src="./script/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
