@@ -23,7 +23,9 @@ userInput.addEventListener('keyup', () => {
   if (tipDivision >= 0 && tipDivision <= 1000) {
     priceTag.textContent = `${tipDivision.toFixed(2)}`; //only two decimal places
     errorMessage.classList.add('error-close');
-
+    let acc = 0;
+    acc += totalTag.value + priceTag.value;
+    totalTag.textContent = acc;
     //return tipDivision;
   } else if (userInput.value === '0') {
     errorMessage.classList.add('error-open');
@@ -31,14 +33,6 @@ userInput.addEventListener('keyup', () => {
 
     userInput.classList.add('error-input');
   }
-  function acc() {
-    const newTag = priceTag.textContent;
-    let counter = 0;
-    counter += newTag;
-    console.log(counter);
-    return counter;
-  }
-  acc();
 });
 
 //event listner
