@@ -361,6 +361,7 @@ span {
 .sign {
   font-size: 1em;
   color: red;
+  animation: apple 1s normal ease-in-out;
 }
 .sign-close {
   opacity: 0;

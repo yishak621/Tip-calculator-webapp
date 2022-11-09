@@ -14,6 +14,7 @@ const resetBtn = document.querySelector('.btn__reset');
 const hide = document.querySelector('.hide'); //cheatcode to transfer a value to the DOM and recive it for our function
 const errorMessage = document.querySelector('.error');
 const sign = document.querySelector('.sign');
+
 //Main event Functionallity-keyup events
 userInput.addEventListener('keyup', () => {
   //calculating the amount of tip
@@ -34,17 +35,9 @@ userInput.addEventListener('keyup', () => {
     errorMessage.classList.add('error-open');
     errorMessage.classList.remove('error-close');
     userInput.classList.add('error-input');
+    checker();
   }
-  //checking if the user didnt put values in the bill input and btn
-  function checker() {
-    if (billInput.value === 0 || billInput.value === '') {
-      sign.classList.remove('sign-close');
-      setTimeout(() => {
-        sign.classList.add('sign-close');
-      }, 3000);
-      return;
-    }
-  }
+
   checker();
 });
 //event listner for custum input
@@ -123,3 +116,15 @@ const updateCount = (el) => {
 
 updateCount(priceTag);
 updateCount(totalTag);
+
+//checking if the user didnt put values in the bill input and btn
+function checker() {
+  if (billInput.value === '0' || billInput.value === '') {
+    sign.classList.remove('sign-close');
+    setTimeout(() => {
+      sign.classList.add('sign-close');
+    }, 3000);
+    return;
+  }
+}
+billInput.addEventListener('keyup', checker);
