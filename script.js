@@ -15,21 +15,28 @@ const hide = document.querySelector('.hide'); //cheatcode to transfer a value to
 const errorMessage = document.querySelector('.error');
 const sign = document.querySelector('.sign');
 
+//<!--TODO: MAIN CALLBACK FUNCTION
+function mainCallback() {
+  //calculating the amount of tip
+  const newHide = parseInt(hide.textContent); //the DOM transfered value (billinput*percent)
+  const tipDivision = newHide / userInput.value;
+  priceTag.textContent = `${tipDivision.toFixed(2)}$`; //only two decimal places
+  errorMessage.classList.add('error-close'); //if before the user make error the err message will be cleared
+  const totalBill =
+    parseFloat(tipDivision.toFixed(2)) +
+    parseFloat(billInput.value) / parseFloat(user.value); //to convert it to a number we use parse int
+
+  totalTag.textContent = `${totalBill.toFixed(2)}$`;
+  userInput.classList.remove('error-input');
+}
+
 //Main event Functionallity-keyup events
 userInput.addEventListener('keyup', () => {
   //calculating the amount of tip
   const newHide = parseInt(hide.textContent); //the DOM transfered value (billinput*percent)
   const tipDivision = newHide / userInput.value;
-
   if (tipDivision >= 0 && tipDivision <= 10000000) {
-    priceTag.textContent = `${tipDivision.toFixed(2)}$`; //only two decimal places
-    errorMessage.classList.add('error-close'); //if before the user make error the err message will be cleared
-    const totalBill =
-      parseFloat(tipDivision.toFixed(2)) +
-      parseFloat(billInput.value) / parseFloat(user.value); //to convert it to a number we use parse int
-
-    totalTag.textContent = `${totalBill.toFixed(2)}$`;
-    userInput.classList.remove('error-input');
+    mainCallback();
   } else if (userInput.value === '0' || userInput.value <= 0) {
     //user must be >0
     errorMessage.classList.add('error-open');
@@ -40,6 +47,7 @@ userInput.addEventListener('keyup', () => {
 
   checker();
 });
+
 //event listner for custum input
 customInput.addEventListener('click', closeActive);
 function closeActive() {
@@ -61,15 +69,19 @@ tipBtnContainer.addEventListener('click', (e) => {
       customInput.value = ''; //to remove if there were value in the custom input
       const tipAmount = value * btnValue;
       hide.textContent = tipAmount;
-
-      return tipAmount;
+      ////////////////////////////////////if we want to toggle the btns to see the change
+      if (userInput.value > 0) {
+        tipBtn.forEach(() => {
+          mainCallback();
+        });
+      }
     });
   } else {
     customInput.addEventListener('keyup', () => {
       const customValue = (customInput.value * value) / 100;
       hide.textContent = customValue;
       console.log(customValue);
-
+      mainCallback();
       return customValue;
     });
   }

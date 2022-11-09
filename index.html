@@ -27,6 +27,9 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
   />
+  <!--data-aos-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <body>
     <header>
       <h1 class="card-title">spli <br />tter</h1>
@@ -35,8 +38,8 @@
       >
     </header>
     <main>
-      <section class="web-app">
-        <div class="card-container">
+      <section>
+        <div class="card-container" data-aos="flip-left">
           <!--card output-->
           <div class="card--input">
             <!--bill input-->
@@ -81,7 +84,7 @@
                   <span class="span__total">Total</span>
                   <span class="person">/ person</span>
                 </span>
-                <span class="total__tag" data-value="1000">$0.00</span>
+                <span class="total__tag" data-value="700">$0.00</span>
               </div>
               <!--reset btn-->
               <button class="btn btn__reset">reset</button>
@@ -93,6 +96,11 @@
     <p class="hide"></p>
 
     <!--script-->
+
     <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
