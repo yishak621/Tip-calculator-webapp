@@ -109,7 +109,7 @@ const updateCount = (el) => {
       clearInterval(increaseCount);
       return; //<!--TODO: important
     }
-    el.textContent = `${initialValue}+`;
+    el.textContent = `${initialValue}$`;
   }, 1); //1 mili second
   //console.log(increaseCount); the id that each span get
 };
