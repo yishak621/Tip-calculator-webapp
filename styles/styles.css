@@ -61,10 +61,13 @@ h4 {
 h1 {
   font-size: 3rem;
 }
-h2 {
+h2,
+.span__amount,
+.span__total {
   font-size: 2rem;
 }
-h3 {
+h3,
+.person {
   font-size: 1.25rem;
 }
 h4 {
@@ -283,13 +286,12 @@ span {
   flex-direction: column;
   row-gap: 0.3rem;
 }
-.amount__flex > h2,
-.total__flex > h2 {
+.amount__flex > .span__amount,
+.total__flex > .span__total {
   font-size: 1.24rem;
   color: var(--color-white);
 }
-.amount__flex > h3,
-.total__flex > h3 {
+.person {
   text-transform: lowercase;
   font-size: 1.1rem;
   color: var(--color-grayish-cyan);
