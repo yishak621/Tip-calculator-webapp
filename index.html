@@ -30,16 +30,18 @@
   <body>
     <header>
       <h1 class="card-title">spli <br />tter</h1>
+      <p class="sign sign-close">Please insert Bill or choose the tip rate</p>
     </header>
     <main>
       <section>
         <div class="card-container">
           <!--card output-->
           <div class="card--input">
+            <!--bill input-->
             <label for="number">Bill</label>
             <i class="fa-solid fa-dollar-sign"></i>
             <input type="number" placeholder="0" id="bill-number" />
-
+            <!--tip percent btns -->
             <div class="tip--section">
               <span>select tip %</span>
               <div class="tip--buttons">
@@ -48,10 +50,11 @@
                 <button data-value="0.15" class="btn tip__btn">15%</button>
                 <button data-value="0.25" class="btn tip__btn">25%</button>
                 <button data-value="0.5" class="btn tip__btn">50%</button>
+                <!--custom tip percent input-->
                 <input type="number" id="custom" placeholder="Custom%" />
               </div>
             </div>
-
+            <!--people/user input-->
             <span class="user"
               ><label for="user">Number of people</label>
               <p class="error error-close">Can't be zero</p></span
@@ -68,7 +71,7 @@
                   <h2>Tip Amount</h2>
                   <h3>/ person</h3>
                 </span>
-                <h1 class="price__tag">$0.00</h1>
+                <h1 class="price__tag" data-value="500">$0.00</h1>
               </div>
               <!--total-->
               <div class="total">
@@ -76,7 +79,7 @@
                   <h2>Total</h2>
                   <h3>/ person</h3>
                 </span>
-                <h1 class="total__tag">$0.00</h1>
+                <h1 class="total__tag" data-value="1000">$0.00</h1>
               </div>
               <!--reset btn-->
               <button class="btn btn__reset">reset</button>
@@ -86,6 +89,7 @@
       </section>
     </main>
     <p class="hide"></p>
+
     <!--script-->
     <script src="script.js"></script>
   </body>

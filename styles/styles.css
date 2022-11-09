@@ -1,3 +1,24 @@
+/*Animations*/
+@keyframes apple {
+  0% {
+    transform: translateX(25%);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  40% {
+    transform: translateX(10%);
+  }
+  55% {
+    transform: translateX(-10%);
+  }
+  80% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(-5%);
+  }
+}
 /*General parameters*/
 html {
   font-size: 62.5%;
@@ -5,14 +26,14 @@ html {
 body {
   margin: 0;
   font-family: 'Space Mono', monospace;
+  background-color: var(--color-Light-grayish-cyan);
+  font-weight: 700;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  background-color: var(--color-Light-grayish-cyan);
-  font-weight: 700;
 }
 
 *,
@@ -95,11 +116,18 @@ p {
   --max-width: 1100px;
   --max-width2: 95vw;
 }
-/*card*/
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Card Section*/
 .card-title {
   font-size: 1.8rem;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: 6px;
   color: var(--color-dark-greyish-cyan);
 }
@@ -107,6 +135,7 @@ p {
   display: grid;
   grid-template-columns: 30rem;
   grid-template-rows: 60% 40%;
+
   box-shadow: var(--dark-shadow);
   border-radius: 15px;
   overflow: hidden;
@@ -134,19 +163,18 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 input[type='number']:focus {
-  border-color: #7db0fb;
   outline: 0;
-  box-shadow: 0 0 0 4px rgba(118, 187, 255, 0.25); /*0 and 0 horizontal and vertical offset and 0 for
+  box-shadow: 0 0 0 2px #7db0fb; /*0 and 0 horizontal and vertical offset and 0 for
      bluring and 3px for spreading the shadow*/
 }
 .card--input {
-  background-color: var(--color-white);
-  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: left;
   align-content: center;
+  background-color: var(--color-white);
+  padding: 3rem 2rem;
 }
 .card--input > i {
   position: relative;
@@ -197,9 +225,24 @@ span {
   color: var(--color-white);
   transition: var(--transition);
 }
-.btn:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-very-dark-cyan);
+
+@media (hover: hover) {
+  .btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-very-dark-cyan);
+  }
+}
+@media (hover: none) {
+  /*targets only medias that can not be hover for mobile devices or tabs <!--TODO:*/
+  .btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-very-dark-cyan);
+  }
+}
+
+.btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 0 2px #f30202;
 }
 #custom {
   text-align: center;
@@ -256,11 +299,6 @@ span {
   color: var(--color-primary);
 }
 
-/*classes that will be added by javascript*/
-.selected {
-  background-color: var(--color-primary);
-  color: var(--color-very-dark-cyan);
-}
 @media screen and (min-width: 800px) {
   .card--input > label,
   span {
@@ -290,6 +328,11 @@ span {
     font-size: 3rem;
   }
 }
+/*classes that will be added by javascript*/
+.selected {
+  background-color: var(--color-primary);
+  color: var(--color-very-dark-cyan);
+}
 /*error*/
 .hide {
   display: none;
@@ -305,9 +348,23 @@ span {
 .error-close {
   display: none;
 }
+.error-input {
+  box-shadow: 0 0 0 2px #f30202;
+}
 .error {
   font-size: 1rem;
   color: red;
   letter-spacing: 2px;
   text-transform: none;
+  animation: apple 1s normal ease-in-out;
+}
+.sign {
+  font-size: 1em;
+  color: red;
+}
+.sign-close {
+  opacity: 0;
+}
+.sign-open {
+  opacity: 1;
 }
