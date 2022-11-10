@@ -48,7 +48,7 @@ userInput.addEventListener('keyup', () => {
   checker();
 });
 
-//event listner for custum input
+//event listner for CUSTOM input
 customInput.addEventListener('click', closeActive);
 function closeActive() {
   tipBtn.forEach((btn) => {
@@ -56,8 +56,13 @@ function closeActive() {
   });
   return tipBtn;
 }
-//event listner
-
+//event listner for BILL INPUT
+billInput.addEventListener('keyup', () => {
+  if (userInput.value > 0) {
+    mainCallback();
+  }
+});
+//event listner TIP BTNS
 tipBtnContainer.addEventListener('click', (e) => {
   const value = billInput.value;
   const btnValue = e.target.dataset.value;
@@ -80,14 +85,16 @@ tipBtnContainer.addEventListener('click', (e) => {
     customInput.addEventListener('keyup', () => {
       const customValue = (customInput.value * value) / 100;
       hide.textContent = customValue;
-      console.log(customValue);
-      mainCallback();
+      if (userInput.value > 0) {
+        mainCallback();
+      }
+
       return customValue;
     });
   }
 });
 
-//reset btn functionality
+//event listener RESET BTN functionality
 
 resetBtn.addEventListener('click', () => {
   setBackToDefault();
@@ -106,7 +113,6 @@ function setBackToDefault() {
 }
 
 //main function for decoration counter
-
 const updateCount = (el) => {
   const value = parseInt(el.dataset.value); //to convert the value from string to number
   const increment = Math.ceil(value / 1000); //<!--TODO: const increment = 1;we can use this but the increment is constant for every value..but we want to make it dynamic for every value so we use math.ceil(value/1000)
@@ -129,7 +135,7 @@ const updateCount = (el) => {
 updateCount(priceTag);
 updateCount(totalTag);
 
-//checking if the user didnt put values in the bill input and btn
+//checking if the user didnt put values in the bill input and btn-ERROR CHECKER
 function checker() {
   if (billInput.value === '0' || billInput.value === '') {
     sign.classList.remove('sign-close');

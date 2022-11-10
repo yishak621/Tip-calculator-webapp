@@ -143,6 +143,13 @@ header {
   border-radius: 15px;
   overflow: hidden;
 }
+.card-container:active {
+  border: 1px solid;
+  border-top-color: orange;
+  border-left-color: green;
+  border-right-color: red;
+  border-bottom-color: blue;
+}
 @media screen and (min-width: 800px) {
   .card-container {
     grid-template-columns: 1fr 1fr;
@@ -299,6 +306,7 @@ span {
 .price__tag,
 .total__tag {
   color: var(--color-primary);
+  font-size: 1.6rem;
 }
 
 @media screen and (min-width: 800px) {
